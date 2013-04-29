@@ -1,0 +1,11 @@
+
+1.000   2013-04-29
+- Added Override layer
+- Removed Perl 5.10 dependency from Config::Onion::Simple
+
+0.003   2013-03-23
+- Added Config::Onion::Simple
+
+0.002   2012-12-03
+- Initial release
+
