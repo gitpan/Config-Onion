@@ -2,7 +2,7 @@ NAME
     Config::Onion - Layered configuration, because configs are like ogres
 
 VERSION
-    version 1.000
+    version 1.001
 
 SYNOPSIS
       my $cfg = Config::Onion->new;

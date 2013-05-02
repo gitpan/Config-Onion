@@ -34,7 +34,8 @@
          "requires" : {
             "FindBin" : "0",
             "Test::Exception" : "0",
-            "Test::More" : "0"
+            "Test::More" : "0",
+            "YAML" : "0"
          }
       }
    },
@@ -45,6 +46,6 @@
          "web" : "https://github.com/dsheroh/Config-Onion/issues"
       }
    },
-   "version" : "1.000"
+   "version" : "1.001"
 }
 
