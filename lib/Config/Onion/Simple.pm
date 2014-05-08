@@ -3,7 +3,7 @@ package Config::Onion::Simple;
 use strict;
 use warnings;
 
-our $VERSION = 1.000;
+our $VERSION = 1.002;
 
 use Config::Onion;
 
@@ -35,7 +35,7 @@ Config::Onion::Simple - Simple interface to a Config::Onion singleton
 
 =head1 VERSION
 
-version 1.001
+version 1.002
 
 =head1 SYNOPSIS
 
@@ -80,7 +80,7 @@ Dave Sherohman <dsheroh@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Lund University Library.
+This software is copyright (c) 2014 by Lund University Library.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

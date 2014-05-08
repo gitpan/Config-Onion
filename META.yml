@@ -10,7 +10,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Dist::Zilla version 5.016, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -26,4 +26,5 @@ requires:
   warnings: 0
 resources:
   bugtracker: https://github.com/dsheroh/Config-Onion/issues
-version: 1.001
+  repository: https://github.com/dsheroh/Config-Onion.git
+version: 1.002

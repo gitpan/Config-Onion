@@ -1,4 +1,0 @@
-
-- See if Config::Any's flatten_to_hash option can be used to simplify the
-process of merging the loaded config fragments
-

@@ -4,7 +4,7 @@
       "Dave Sherohman <dsheroh@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 5.016, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -44,8 +44,13 @@
       "bugtracker" : {
          "mailto" : "dsheroh@cpan.org",
          "web" : "https://github.com/dsheroh/Config-Onion/issues"
+      },
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/dsheroh/Config-Onion.git",
+         "web" : "https://github.com/dsheroh/Config-Onion"
       }
    },
-   "version" : "1.001"
+   "version" : "1.002"
 }
 
