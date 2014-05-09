@@ -3,7 +3,7 @@ package Config::Onion::Simple;
 use strict;
 use warnings;
 
-our $VERSION = 1.003;
+our $VERSION = 1.004;
 
 use Config::Onion;
 
@@ -35,7 +35,7 @@ Config::Onion::Simple - Simple interface to a Config::Onion singleton
 
 =head1 VERSION
 
-version 1.003
+version 1.004
 
 =head1 SYNOPSIS
 
