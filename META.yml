@@ -27,4 +27,4 @@ requires:
 resources:
   bugtracker: https://github.com/dsheroh/Config-Onion/issues
   repository: https://github.com/dsheroh/Config-Onion.git
-version: 1.002
+version: 1.003

@@ -4,7 +4,7 @@ Config::Onion - Layered configuration, because configs are like ogres
 
 # VERSION
 
-version 1.002
+version 1.003
 
 # SYNOPSIS
 
@@ -64,112 +64,112 @@ The design intent for each layer is:
     Settings provided at run-time which take precendence over all configuration
     files, such as settings provided via command line switches
 
-    # METHODS
+# METHODS
 
-    ## new
+## new
 
-    Returns a new, empty configuration object.
+Returns a new, empty configuration object.
 
-    ## load(@file\_stems)
+## load(@file\_stems)
 
-    Loads files matching the given stems using `Config::Any->load_stems` into
-    the Main layer.  Also concatenates ".local" to each stem and loads matching
-    files into the Local layer.  e.g., `$cfg->load('myapp')` would load
-    `myapp.yml` into Main and `myapp.local.js` into Local.  All filename
-    extensions supported by `Config::Any` are recognized along with their
-    corresponding formats.
+Loads files matching the given stems using `Config::Any->load_stems` into
+the Main layer.  Also concatenates ".local" to each stem and loads matching
+files into the Local layer.  e.g., `$cfg->load('myapp')` would load
+`myapp.yml` into Main and `myapp.local.js` into Local.  All filename
+extensions supported by `Config::Any` are recognized along with their
+corresponding formats.
 
-    ## load\_glob(@globs)
+## load\_glob(@globs)
 
-    Uses the Perl `glob` function to expand each parameter into a list of
-    filenames and loads each file using `Config::Any`.  Files whose names contain
-    the string ".local." are loaded into the Local layer.  All other files are
-    loaded into the Main layer.
+Uses the Perl `glob` function to expand each parameter into a list of
+filenames and loads each file using `Config::Any`.  Files whose names contain
+the string ".local." are loaded into the Local layer.  All other files are
+loaded into the Main layer.
 
-    ## set\_default(\[\\%settings,...,\] %settings)
+## set\_default(\[\\%settings,...,\] %settings)
 
-    ## set\_override(\[\\%settings,...,\] %settings)
+## set\_override(\[\\%settings,...,\] %settings)
 
-    Imports `%settings` into the Default or Override layer.  Accepts settings both
-    as a plain hash and as hash references, but, if the two are mixed, all hash
-    references must appear at the beginning of the parameter list, before any
-    non-hashref settings.
+Imports `%settings` into the Default or Override layer.  Accepts settings both
+as a plain hash and as hash references, but, if the two are mixed, all hash
+references must appear at the beginning of the parameter list, before any
+non-hashref settings.
 
-    # PROPERTIES
+# PROPERTIES
 
-    ## cfg
+## cfg
 
-    ## get
+## get
 
-    Returns the complete configuration as a hash reference.
+Returns the complete configuration as a hash reference.
 
-    ## default
+## default
 
-    ## main
+## main
 
-    ## local
+## local
 
-    ## override
+## override
 
-    These properties each return a single layer of the configuration.  This is
-    not likely to be useful other than for debugging.  For most other purposes,
-    you probably want to use `get` instead.
+These properties each return a single layer of the configuration.  This is
+not likely to be useful other than for debugging.  For most other purposes,
+you probably want to use `get` instead.
 
-    # CONFIGURATION
+# CONFIGURATION
 
-    ## $Config::Onion::prefix\_key
+## $Config::Onion::prefix\_key
 
-    If set, enables the Prefix Structures functionality described below.  The
-    value of `$Config::Onion::prefix_key` specifies the name of the key under
-    which the prefix structure may be found.
+If set, enables the Prefix Structures functionality described below.  The
+value of `$Config::Onion::prefix_key` specifies the name of the key under
+which the prefix structure may be found.
 
-    Default value is `undef`.
+Default value is `undef`.
 
-    # Prefix Structures
+# Prefix Structures
 
-    If you find that your configuration structure is becoming unwieldy due to
-    deeply-nested structures, you can define a file-specific "prefix structure"
-    and all other settings within that file will be loaded as children of the
-    prefix structure.  For example, if your main program uses
+If you find that your configuration structure is becoming unwieldy due to
+deeply-nested structures, you can define a file-specific "prefix structure"
+and all other settings within that file will be loaded as children of the
+prefix structure.  For example, if your main program uses
 
-        $Config::Onion::prefix_key = '_prefix';
-        my $cfg = Config::Onion->load("myapp/config");
+    $Config::Onion::prefix_key = '_prefix';
+    my $cfg = Config::Onion->load("myapp/config");
 
-    and `myapp/config.yml` contains
+and `myapp/config.yml` contains
 
-        _prefix:
-          foo:
-            bar:
+    _prefix:
+      foo:
+        bar:
 
+    baz: 1
+
+then `$cfg` will contain the configuration
+
+    foo:
+      bar:
         baz: 1
 
-    then `$cfg` will contain the configuration
+Note that the top-level `$Config::Onion::prefix_key` is removed.
 
-        foo:
-          bar:
-            baz: 1
+There are some limitations on the prefix structure, in order to keep it sane
+and deterministic.  First, the prefix structure may only contain hashes.
+Second, each hash must contain exactly one key.  Finally, the value associated
+with the final key must be left undefined.
 
-    Note that the top-level `$Config::Onion::prefix_key` is removed.
+# BUGS AND LIMITATIONS
 
-    There are some limitations on the prefix structure, in order to keep it sane
-    and deterministic.  First, the prefix structure may only contain hashes.
-    Second, each hash must contain exactly one key.  Finally, the value associated
-    with the final key must be left undefined.
+No bugs have been reported.
 
-    # BUGS AND LIMITATIONS
+Please report any bugs or feature requests at
+[https://github.com/dsheroh/Config-Onion/issues](https://github.com/dsheroh/Config-Onion/issues)
 
-    No bugs have been reported.
+# AUTHOR
 
-    Please report any bugs or feature requests at
-    [https://github.com/dsheroh/Config-Onion/issues](https://github.com/dsheroh/Config-Onion/issues)
+Dave Sherohman <dsheroh@cpan.org>
 
-    # AUTHOR
+# COPYRIGHT AND LICENSE
 
-    Dave Sherohman <dsheroh@cpan.org>
+This software is copyright (c) 2014 by Lund University Library.
 
-    # COPYRIGHT AND LICENSE
-
-    This software is copyright (c) 2014 by Lund University Library.
-
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.

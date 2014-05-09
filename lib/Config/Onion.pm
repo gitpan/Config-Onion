@@ -3,7 +3,7 @@ package Config::Onion;
 use strict;
 use warnings;
 
-our $VERSION = 1.002;
+our $VERSION = 1.003;
 
 use Config::Any;
 use Hash::Merge::Simple 'merge';
@@ -110,7 +110,7 @@ sub _replace_prefix_key {
   my $root = $cfg->{$prefix_key};
   while (1) {
     die "Config::Onion prefix key structure may not branch" if keys %$root > 1;
-    $top_key //= (keys %$root)[0];
+    $top_key ||= (keys %$root)[0];
     my $child = (values %$root)[0];
     unless ($child) {
       my $key = (keys %$root)[0];
@@ -140,7 +140,7 @@ Config::Onion - Layered configuration, because configs are like ogres
 
 =head1 VERSION
 
-version 1.002
+version 1.003
 
 =head1 SYNOPSIS
 
@@ -201,6 +201,8 @@ them from being overwritten by application upgrades, etc.
 
 Settings provided at run-time which take precendence over all configuration
 files, such as settings provided via command line switches
+
+=back
 
 =head1 METHODS
 
